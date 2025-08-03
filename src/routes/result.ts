@@ -12,12 +12,14 @@ router.get("/:id", (req, res) => {
     const job = cache.get(id);
     res.render('result', {
       title: 'Analysis Result',
+      jobId: id,
       job,
     });
   } else if (fs.existsSync(path.resolve(JSON_OUTPUT_PATH, `${id}.json`))) {
     const jsonData = fs.readFileSync(path.resolve(JSON_OUTPUT_PATH, `${id}.json`), "utf-8");
     res.render('result', {
       title: 'Analysis Result',
+      jobId: id,
       job: {
         status: "completed",
         ...jsonData ? JSON.parse(jsonData) : {},

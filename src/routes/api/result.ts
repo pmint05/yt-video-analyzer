@@ -13,6 +13,7 @@ router.get("/:id", (req, res) => {
     return res.status(200).json({
       success: true,
       job,
+      jobId: id,
     });
   } else if (fs.existsSync(path.resolve(JSON_OUTPUT_PATH, `${id}.json`))) {
     const jsonData = fs.readFileSync(path.resolve(JSON_OUTPUT_PATH, `${id}.json`), "utf-8");
@@ -21,6 +22,7 @@ router.get("/:id", (req, res) => {
       job: {
         status: "completed",
         ...jsonData ? JSON.parse(jsonData) : {},
+        jobId: id,
       },
     });
   } else {

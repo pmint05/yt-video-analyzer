@@ -1,5 +1,8 @@
 <h1 id="result-title">{{title}}</h1>
 {{#if job}}
+	<a id="view-result-in-api" href="/api/result/{{jobId}}" target="_blank">
+		View Result In API Route
+	</a>
 	<div id="job-status">{{job.status}}</div>
 	{{#if job.result.thumbnail}}
 	<img id="result-thumbnail" src="../{{job.result.thumbnail}}" alt="Thumbnail" /></li>

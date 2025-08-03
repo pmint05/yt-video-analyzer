@@ -25,5 +25,4 @@ app.set('view engine', 'hbs');
 
 app.use("/", routes)
 
-
 export default app;
