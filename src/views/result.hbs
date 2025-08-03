@@ -1,29 +1,34 @@
-<h1>{{title}}</h1>
-
+<h1 id="result-title">{{title}}</h1>
 {{#if job}}
-	<p>Status: {{job.status}}</p>
+	<div id="job-status">{{job.status}}</div>
+	{{#if job.result.thumbnail}}
+	<img id="result-thumbnail" src="../{{job.result.thumbnail}}" alt="Thumbnail" /></li>
+	<div class="detail-wrapper">
+		<h3>Thumbnail Path:</h3>
+		<code id="result-thumbnail-path">
+			{{job.result.thumbnail}}
+		</code>
+	</div>
+	{{else}}
+		<p>No thumbnail available.</p>
+	{{/if}}
+
+	{{#if job.result.transcription}}
+		<div class="detail-wrapper">
+			<h3>
+				Transcription:
+			</h3>
+			<pre id="result-transcription">{{json job.result.transcription}}</pre>
+		</div>
+	{{else}}
+		<p>No analysis result available.</p>
+	{{/if}}
+
 
 	{{#if job.error}}
 		<h3>Error Details:</h3>
-		<pre>{{job.error}}</pre>
+		<pre id="job-error">{{job.error}}</pre>
 	{{/if}}
-
-	<h3>Result:</h3>
-	<pre>{{json job}}</pre>
 {{else}}
 	<p>No job found.</p>
-{{/if}}
-
-{{#if job.result}}
-	<h3>Analysis Result:</h3>
-	<ul>
-		<li>Success: {{job.result.success}}</li>
-		<li>Thumbnail:
-			<img src="../{{job.result.thumbnail}}" alt="Thumbnail" /></li>
-		{{#if job.result.transcription}}
-			<li>Transcription: {{job.result.transcription}}</li>
-		{{/if}}
-	</ul>
-{{else}}
-	<p>No analysis result available.</p>
 {{/if}}
