@@ -1,0 +1,21 @@
+<div id="form-wrapper">
+	<div id="form-header">
+		<h1>YouTube Video Analysis</h1>
+		<p>Enter a YouTube video URL to analyze its metadata and statistics.</p>
+	</div>
+	<form action="/analyze" method="post" id="url-form">
+		<input
+			type="url"
+			name="url"
+			placeholder="Enter YouTube video URL"
+			required
+			id="url-input"
+		/>
+		<button type="submit">Analyze</button>
+	</form>
+	<div id="result">
+		<code id="jobId">123-123-123-123-123</code>
+		<a id="resultUrl" href="" target="_blank">View Result</a>
+	</div>
+	<div id="message"></div>
+</div>

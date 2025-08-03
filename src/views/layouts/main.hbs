@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="icon" href="/favicon.ico">
+  <script src="/scripts/main.js" defer></script>
+  {{#if styles}}
+    {{#each styles}}
+      <link rel="stylesheet" href="{{this}}">
+    {{/each}}
+  {{/if}}
+  {{#if scripts}}
+    {{#each scripts}}
+      <script src="{{this}}" defer></script>
+    {{/each}}
+  {{/if}}
+</head>
+<body>
+  {{> header}}
+  {{{body}}}
+  {{> footer}}
+</body>
+</html>

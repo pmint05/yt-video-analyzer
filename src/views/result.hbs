@@ -1,0 +1,29 @@
+<h1>{{title}}</h1>
+
+{{#if job}}
+	<p>Status: {{job.status}}</p>
+
+	{{#if job.error}}
+		<h3>Error Details:</h3>
+		<pre>{{job.error}}</pre>
+	{{/if}}
+
+	<h3>Result:</h3>
+	<pre>{{json job}}</pre>
+{{else}}
+	<p>No job found.</p>
+{{/if}}
+
+{{#if job.result}}
+	<h3>Analysis Result:</h3>
+	<ul>
+		<li>Success: {{job.result.success}}</li>
+		<li>Thumbnail:
+			<img src="../{{job.result.thumbnail}}" alt="Thumbnail" /></li>
+		{{#if job.result.transcription}}
+			<li>Transcription: {{job.result.transcription}}</li>
+		{{/if}}
+	</ul>
+{{else}}
+	<p>No analysis result available.</p>
+{{/if}}

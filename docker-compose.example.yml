@@ -1,0 +1,14 @@
+version: "3"
+services:
+  youtube-analysis:
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./uploads:/app/uploads
+      - ./src/views:/app/dist/views
+      - ./src/public:/app/dist/public
+    environment:
+      - NODE_ENV=production
+      - ELEVENLABS_API_KEY=
+      - PORT=8080
